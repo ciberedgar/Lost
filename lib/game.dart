@@ -27,3 +27,9 @@ final TextConfig textoBlanco = TextConfig(
   fontFamily: 'MS Gothic',
   color: Color(0xFFFFFFFF),
 ); //texto para nivel, score
+
+class MyGame extends BaseGame{
+
+static int vidas = 3;
+
+}
