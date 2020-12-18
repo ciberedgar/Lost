@@ -1,0 +1,4 @@
+#Thu Dec 17 23:37:06 PST 2020
+base.0=C\:\\Users\\Admin\\Desktop\\lost_2020\\Lost\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

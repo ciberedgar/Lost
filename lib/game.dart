@@ -30,6 +30,10 @@ final TextConfig textoBlanco = TextConfig(
 
 class MyGame extends BaseGame{
 
-static int vidas = 3;
+  static int _vidas = 3;
+  static int _score = 0;
+  static bool   _gameOver       = false;
+  static Size   _screenSize;
+  static double _spriteSize     = 80.0;
 
 }
