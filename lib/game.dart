@@ -29,11 +29,20 @@ final TextConfig textoBlanco = TextConfig(
 ); //texto para nivel, score
 
 class MyGame extends BaseGame{
-
+  
+ //variables estaticas para funcionamiento de los objetos y logica del juego
   static int _vidas = 3;
   static int _score = 0;
+  static int _direccion = 0;
   static bool   _gameOver       = false;
   static Size   _screenSize;
   static double _spriteSize     = 80.0;
+
+//variables para entorno del juego
+  AudioPlayer _audioPlayer;
+  Sprite      _sprite = Sprite('background.png');
+  Random      _random;
+  
+  //apartir de aqui variables para la logica del juego
 
 }
