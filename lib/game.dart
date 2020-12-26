@@ -16,7 +16,7 @@ import 'package:lost_project_2020/bullet.dart'; //clase bullet
 
 //Instancias para textos
 final TextConfig textoRojo = TextConfig(
-  fontSize: 40.0,
+  fontSize: 50.0,
   fontFamily: 'MS Gothic',
   color: Color(0xFFFF0000),
 
@@ -27,9 +27,9 @@ final TextConfig textoBlanco = TextConfig(
   fontFamily: 'MS Gothic',
   color: Color(0xFFFFFFFF),
 ); //texto para nivel, score
-
+final TextConfig textoAzul = textoBlanco.withColor(Color(0xFF0061FF));
 class MyGame extends BaseGame{
-  
+
  //variables estaticas para funcionamiento de los objetos y logica del juego
   static int _vidas = 3;
   static int _score = 0;
@@ -40,9 +40,43 @@ class MyGame extends BaseGame{
 
 //variables para entorno del juego
   AudioPlayer _audioPlayer;
-  Sprite      _sprite = Sprite('background.png');
+  Sprite      _background = Sprite('background.png');
   Random      _random;
+
+  GameObject _objetos;
+  GameObject _jugador;
+  List <GameObject> _listaZombies = <GameObject>[];
+  List <GameObject> _listaBullets = <GameObject>[];
+
+  double _spawnTimer = 0.0;
+  double _fireTimer = 0.0;
+  double _hitTimer = 0.0;
+
+  MyGame(){inicializa();}
+
+  void inicializa() async {
+    Flame.audio.disableLog();
+    AudioPlayer.logEnabled = false;
+
+    _random = Random(DateTime.now().millisecondsSinceEpoch); //
+    _jugador = new Player(100, 300, 'astronauta.png', _spriteSize); //creacion del jugador
+    add(_jugador); //render del jugador
+    _audioPlayer = await Flame.audio.loop("background.mp3"); //audio de fondo
+  }
+  @override
+  void render(Canvas canvas){
+    //_background.renderRect(canvas, Rect.fromLTWH(0, 0, _screenSize.width, _screenSize.height));
+    super.render(canvas);
+
+    textoBlanco.render(canvas, "Puntaje: ", Position(70, 500));
+    textoAzul.render(canvas, "$_score", Position(190, 500));
+  }
   
+  @override
+  void update(double t){
+    super.update(t);
+
+  }
   //apartir de aqui variables para la logica del juego
 
 }
