@@ -23,11 +23,12 @@ final TextConfig textoRojo = TextConfig(
 );
 
 final TextConfig textoBlanco = TextConfig(
-  fontSize: 60.0,
+  fontSize: 20.0,
   fontFamily: 'MS Gothic',
   color: Color(0xFFFFFFFF),
 ); //texto para nivel, score
 final TextConfig textoAzul = textoBlanco.withColor(Color(0xFF0061FF));
+final TextConfig textoVerde = textoBlanco.withColor(Color(0xFF00FF00));
 class MyGame extends BaseGame{
 
  //variables estaticas para funcionamiento de los objetos y logica del juego
@@ -41,6 +42,7 @@ class MyGame extends BaseGame{
 //variables para entorno del juego
   AudioPlayer _audioPlayer;
   Sprite      _background = Sprite('background.png');
+  Sprite      _background2 = Sprite('background2.jpeg');
   Random      _random;
 
   GameObject _objetos;
@@ -59,23 +61,38 @@ class MyGame extends BaseGame{
     AudioPlayer.logEnabled = false;
 
     _random = Random(DateTime.now().millisecondsSinceEpoch); //
-    _jugador = new Player(100, 300, 'astronauta.png', _spriteSize); //creacion del jugador
+    _jugador = new Player(180, 100, 'astronauta.png', _spriteSize); //creacion del jugador
     add(_jugador); //render del jugador
     _audioPlayer = await Flame.audio.loop("background.mp3"); //audio de fondo
   }
   @override
   void render(Canvas canvas){
-    //_background.renderRect(canvas, Rect.fromLTWH(0, 0, _screenSize.width, _screenSize.height));
+    _background.renderRect(canvas, Rect.fromLTWH(0, 0, _screenSize.width, _screenSize.height-400));
+    _background2.renderRect(canvas, Rect.fromLTWH(0, _screenSize.height-350, _screenSize.width, _screenSize.height-370));
+
     super.render(canvas);
 
-    textoBlanco.render(canvas, "Puntaje: ", Position(70, 500));
-    textoAzul.render(canvas, "$_score", Position(190, 500));
+    textoBlanco.render(canvas, "Puntos: ", Position(10, 10)); // datos del juego
+    textoAzul.render(canvas, "$_score", Position(90, 10));
+    textoBlanco.render(canvas, "Vidas: ", Position(200, 10));
+    textoAzul.render(canvas, "$_vidas", Position(280, 10));
+    textoVerde.render(canvas, "-ON-", Position(185,340));
+
+   // FloatingActionButton(onPressed:_jugador.onTapDown(1)); //estaba probando lo de los botones, no tengo ni idea de como manejar botones, help, no creo que
+    //ni deban de estar aqui:(
+
+
   }
   
   @override
   void update(double t){
     super.update(t);
 
+  }
+
+  void resize(Size size){
+    super.resize(size);
+    _screenSize = size;
   }
   //apartir de aqui variables para la logica del juego
 
