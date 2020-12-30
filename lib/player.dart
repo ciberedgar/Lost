@@ -24,10 +24,10 @@ class Player extends GameObject{
       this.x -= velJugador; // 4 = izquierda
     }
 
-    //metodo llamado por clase game en donde irian los floating action button (cruceta de movimiento)
-    //en cada boton iria por ej onPress(direccion = 1,2,3 o 4 seguido de onTapDown(direccion)) 
-    //*direccion es una variable estatica en la clase game pensada para la direccion de player y bullet
-
+    
+     
+    
+    @override
     void onTapDown(int direccion){
       this.dirJugador=direccion;
     }

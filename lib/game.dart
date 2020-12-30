@@ -64,6 +64,8 @@ class MyGame extends BaseGame{
     _jugador = new Player(180, 100, 'astronauta.png', _spriteSize); //creacion del jugador
     add(_jugador); //render del jugador
     _audioPlayer = await Flame.audio.loop("background.mp3"); //audio de fondo
+
+    
   }
   @override
   void render(Canvas canvas){
@@ -78,9 +80,7 @@ class MyGame extends BaseGame{
     textoAzul.render(canvas, "$_vidas", Position(280, 10));
     textoVerde.render(canvas, "-ON-", Position(185,340));
 
-   // FloatingActionButton(onPressed:_jugador.onTapDown(1)); //estaba probando lo de los botones, no tengo ni idea de como manejar botones, help, no creo que
-    //ni deban de estar aqui:(
-
+    
 
   }
   
@@ -88,6 +88,17 @@ class MyGame extends BaseGame{
   void update(double t){
     super.update(t);
 
+  }
+
+  @override
+  void onTapDown(TapDownDetails d) {
+    if(!_gameOver)                        // solo en caso de que el juego este activo
+    { 
+    // _jugador.onTapDown(_direccion); //aqui va lo del cambio de direccion pa que se mueva, pero me da error jej
+    }
+  }
+  void cambiaDireccion(int dir){
+    _direccion =  dir;
   }
 
   void resize(Size size){
