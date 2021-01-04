@@ -24,7 +24,7 @@ abstract class GameObject extends SpriteComponent{
     super.render(canvas);
   }
 
-  //metodo update para actualizar variables de movimiento de los zombies, o para general, depende en que quedemos del movimiento, igual esta override
+  //metodo update para actualizar variables de movimiento de los zombies
   @override
   void update(double tiempo){
     //incremento de posicion ya sea x o y ej. this.x += t*SPEED(velocidad del los objetos)

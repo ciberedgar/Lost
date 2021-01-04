@@ -11,13 +11,13 @@ class Player extends GameObject{
   //metodo para movimiento del jugador
   @override
   void update(double t){
-    if(dirJugador==1 && this.y <  10 ){ //aqui deberia ir la maxima coordenada en y, no 10 xd, ya que este hecho el disenio sabremos cual es vea?
+    if(dirJugador==1 && this.y <  10 ){ //aqui deberia ir la maxima coordenada en y
       this.y += velJugador; //1 = arriba
     }
     else if(dirJugador==2 && this.x <350){
       this.x += velJugador; // 2 = derecha
     }
-    else if(dirJugador==3 && this.y > 0 ){ //aqui deberia ir la minima coordenada en y, no 0 xd, ya que este hecho el disenio sabremos cual es vea? x2
+    else if(dirJugador==3 && this.y > 0 ){ //aqui deberia ir la minima coordenada en y
       this.y -= velJugador; //3 = abajo
     }
     else if(dirJugador==4 && this.x > 0){

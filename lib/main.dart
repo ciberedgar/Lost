@@ -5,16 +5,16 @@ import 'package:flame/util.dart';        // Flame: fullscreen, setOrientation
 import 'package:lost_project_2020/game.dart';
 
 void main() async{
-  WidgetsFlutterBinding.ensureInitialized();  // enlaza capa Widgets y motor Flutter 
+  WidgetsFlutterBinding.ensureInitialized();  
   int direccion = 0;
-  Util flameUtil = Util();                    // instanciamos objeto flameUtil de Util
-  await flameUtil.fullScreen();          // adecuamos la pantalla
+  Util flameUtil = Util();                    
+  await flameUtil.fullScreen();          
   await flameUtil.setOrientation(DeviceOrientation.portraitUp);
 
-  MyGame game = MyGame();     // instanciamos objeto game de clase MyGame    
-  runApp(MaterialApp(         // widget que envuelve un conjunto de otroswidgets
+  MyGame game = MyGame();        
+  runApp(MaterialApp(         
       home: Scaffold(appBar: null,
-      body: game.widget, //se ve maton pero son solo etiquetas, has de cuenta html, concentrate en los onpaddown donde ocurre la magia jej
+      body: game.widget, //gamepad
       floatingActionButton: Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: <Widget>[

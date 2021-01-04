@@ -94,7 +94,7 @@ class MyGame extends BaseGame{
   void onTapDown(TapDownDetails d) {
     if(!_gameOver)                        // solo en caso de que el juego este activo
     { 
-    // _jugador.onTapDown(_direccion); //aqui va lo del cambio de direccion pa que se mueva, pero me da error jej
+    // _jugador.onTapDown(_direccion); //aqui va lo del cambio de direccion para que se mueva, cosa que no pudimos solucionar
     }
   }
   void cambiaDireccion(int dir){

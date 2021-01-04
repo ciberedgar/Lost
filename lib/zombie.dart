@@ -7,6 +7,6 @@ class Zombie extends GameObject{
 
 
   void update(double t){
-    //aqui el movimiento predeterminado de los zombies, falta que veamos que onda con eso
+    //aqui el movimiento predeterminado de los zombies
   }
 }
